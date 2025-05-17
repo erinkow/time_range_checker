@@ -6,26 +6,14 @@ const timeRangeChecker = (time: number, start: number, end: number): boolean => 
     }
 
     if (start === end) {
-        if (start === time) { // timeがstartと等しい
-            return true;
-        } else { // timeがstartとことなる
-            return false; 
-        }
+        return time === start;
     } else if (start < end) {
-        if (time >= start && time < end) { //timeがstart以上で且つend未満
-            return true;
-        } else {
-            return false; 
-        }
+        return time >= start && time < end;
     } else { // startがendより大きい(日付またぎ)
-        if (time >= start || time < end ) { // timeがstart未満、またはendより小さい
-            return true;
-        } else {
-            return false;
-        }
+        return time >= start || time < end;
     }
 }
 
-console.log(timeRangeChecker(2, 3, 23));
+console.log(timeRangeChecker(2, 3, 3));
 console.log(timeRangeChecker(5, 22, 6));
 console.log(timeRangeChecker(24, 23, 3));
