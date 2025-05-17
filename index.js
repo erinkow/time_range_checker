@@ -7,12 +7,11 @@ const timeRangeChecker = (time, start, end) => {
     if (start === end) {
         return time === start;
     }
-    else if (start < end) {
+    if (start < end) {
         return time >= start && time < end;
     }
-    else { // startがendより大きい(日付またぎ)
-        return time >= start || time < end;
-    }
+    // startがendより大きい(日付またぎ)
+    return time >= start || time < end;
 };
 console.log(timeRangeChecker(2, 3, 3));
 console.log(timeRangeChecker(5, 22, 6));
